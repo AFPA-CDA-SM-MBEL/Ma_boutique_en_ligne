@@ -48,8 +48,10 @@ class _MyHomePageState extends State<MyHomePage> {
           const Icon(
             Icons.search,
           ),
-          const Icon(
-            Icons.account_circle,
+          IconButton(
+            icon: const Icon(
+              Icons.account_circle,
+            ), onPressed: () {  },
           ),
           IconButton(
               icon: const Icon(
@@ -103,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
               ),
-              const Text('Saisir votre identifiant :'),
+              const Text('Saisir votre mot de passe :'),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
@@ -111,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   enableSuggestions: false,
                   autocorrect: false,
                   decoration: const InputDecoration(
-                    hintText: 'Votre identifiant',
+                    hintText: 'Votre mot de passe',
                   ),
                   onChanged: (value){
                     setState(() {

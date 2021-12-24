@@ -35,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String identifiant = "", mdp = "";
 
+
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
@@ -45,14 +46,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         backgroundColor: Colors.red,
         actions: [
-          const Icon(
-            Icons.search,
-          ),
           IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+          /*IconButton(
             icon: const Icon(
               Icons.account_circle,
             ), onPressed: () {  },
-          ),
+          ),*/
           IconButton(
               icon: const Icon(
                 Icons.shopping_cart,
@@ -68,11 +70,47 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.sports_baseball,
+                color: Colors.white,
+              ),
+              title: Text(
+                'eshop',
+                style: TextStyle(color: Colors.white),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.supervised_user_circle,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Mon compte',
+                style: TextStyle(color: Colors.white),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.report,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Mentions légales',
+                style: TextStyle(color: Colors.white),
+              )),
+        ],
+        backgroundColor: Colors.red,
+        //onTap: _itemClique,
+        //currentIndex: _indexSelectionne,
+      ),
+
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset("lib/assets/logo.png"),
               const Text(
                 "Nos meilleures ventes",
                 style: TextStyle(fontWeight: FontWeight.bold,
@@ -155,13 +193,29 @@ class MyCartPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const Text(
-                "Votre panier",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25, color: Colors.blue
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "Votre panier",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25, color: Colors.blue
+                      ),
+                    ),
+                    Icon(
+                      Icons.cancel,
+                    ),
+                  ],
                 ),
               ),
+
+
+
+
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Container(
@@ -171,7 +225,7 @@ class MyCartPage extends StatelessWidget {
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left:80),
+                        padding: const EdgeInsets.only(left: 70),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -231,7 +285,7 @@ class MyCartPage extends StatelessWidget {
                   //height: 100,
                   color: Colors.white30,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 80),
+                    padding: const EdgeInsets.only(left: 70),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,

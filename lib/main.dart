@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ma_boutique_en_ligne/serveur.dart';
 import 'package:ma_boutique_en_ligne/widgets/my_caroussel.dart';
 //import 'package:ma_boutique_en_ligne/widgets/my_image_slider_demo.dart';
 
@@ -161,7 +162,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  final Server server = Server();
+                  List<Map<String, String>> tmp = await server.getProductDetails(identifiant, mdp);
                   print(identifiant);
                   print(mdp);
                 },
@@ -352,3 +355,37 @@ class MyCartPage extends StatelessWidget {
     );
   }
 }
+/*
+class DataSearch extends SearchDelegate<String>{
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [IconButton(icon: Icon(Icons.clear), onPressed: (){})];
+    // actions for app bar
+
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      icon: AnimatedIcon(
+        icon: AnimadedIcons.menu_arrow,
+        progress: null,
+      ),
+      OnPressed: (){});
+    // Leading icon on the left on the app bar
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // show some result based on the selection
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // show when someone searches for something
+    throw UnimplementedError();
+  }
+
+}*/
+
